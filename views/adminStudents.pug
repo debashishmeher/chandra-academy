@@ -1,0 +1,30 @@
+extend admin 
+   
+block adminContent
+    .filter-box 
+        form.align-center(action="/admin/students", method="get") 
+            .input-box 
+                select(name="studentClass") 
+                    option(value="") select class
+                    option(value="6") 6th
+                    option(value="7") 7th
+                    option(value="8") 8th
+                    option(value="9") 9th
+                    option(value="10") 10th
+                    option(value="11") +2 First Year
+                    option(value="12") +2 Second Year
+            .input-box 
+                select(name="medium") 
+                    option(value="") Medium
+                    option(value="english") English
+                    option(value="odia") Odia
+            button.btn(type="submit") search
+    .admin-student-container 
+        each student in students
+            a(href=`/admin/student/${student.id}`) 
+                .students-box
+                    img.student-box-img(src=`/./images/upload/${student.photo}`, alt="student photo")
+                    .student-info 
+                        p.name=student.name
+                        p=`${student.studentClass}th`
+                        p=student.phone 

@@ -1,0 +1,15 @@
+extend base
+
+block content 
+    section.container 
+        .login-container 
+            h2.login-heading forgot
+            form.login-form#forgot(action="/forgot",method="POST") 
+                label(for="forgot-email")
+                    p.useremail email 
+                    input#forgot-email(type="text", name="forgot-email",placeholder="Enter your email")              
+                button.btn(type="submit") get 
+                .other 
+                    p
+                    | I  have an account.
+                    a.signup-link(href="/login") login           

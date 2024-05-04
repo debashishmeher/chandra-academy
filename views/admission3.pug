@@ -1,0 +1,82 @@
+extend admission 
+
+block admission 
+    .admission-progress 
+        //- .progress-bar 
+        //-     span
+        //-     span
+        //-     span.admission-active 
+        //-     span
+        .progress-item 
+            p Student Information
+            p Additional Information
+            p.admission-active Address Details
+            p Documents
+    .admission-form.align-center
+        if admission 
+             form#admission3update.align-center
+                .input-box 
+                    label(for="admission-village") village:- 
+                    input#admission-village(type="text", name="admission-village",value=`${admission.village}`)
+                
+                .input-box 
+                    label(for="postOffice") post Office:-
+                    input#admission-postOffice(type="text", name="postOffice",value=`${admission.postOffice}`)
+                .input-box 
+                    label(for="policeStation") police Station:-
+                    input#admission-policeStation(type="text", name="policeStation",value=`${admission.policeStation}`)
+                .input-box 
+                    label(for="pin") pin:-
+                    input#admission-pin(type="number", name="pin",value=`${admission.pin}`)
+                .input-box 
+                    label(for="dist") dist:-
+                    input#admission-dist(type="text", name="dist",value=`${admission.dist}`)
+                .input-box 
+                    label(for="stay") stay:-
+                        select#admission-stay(name="stay") 
+                            option(value=`${admission.transport}`)=admission.transport
+                            option(value="hostel") hostel
+                            option(value="day scholar") day scholar
+                .input-box 
+                    label(for="transport") transport:-
+                        select#admission-transport(name="transport") 
+                            option(value=`${admission.stay}`)=admission.stay
+                            option(value="coaching") coaching
+                            option(value="school") school
+                            option(value="both") both
+                .action
+                    button.btn(type="submmit") update & continue
+                    a(href=`/admission/${admission.admission}/page4`) 
+                        .btn next
+        else 
+            form#admission3.align-center
+                .input-box 
+                    label(for="admission-village") village:- 
+                    input#admission-village(type="text", name="admission-village")
+                
+                .input-box 
+                    label(for="postOffice") post Office:-
+                    input#admission-postOffice(type="text", name="postOffice")
+                .input-box 
+                    label(for="policeStation") police Station:-
+                    input#admission-policeStation(type="text", name="policeStation")
+                .input-box 
+                    label(for="pin") pin:-
+                    input#admission-pin(type="number", name="pin")
+                .input-box 
+                    label(for="dist") dist:-
+                    input#admission-dist(type="text", name="dist")
+                .input-box 
+                    label(for="stay") stay:-
+                        select#admission-stay(name="stay") 
+                            option(value="#") select your stay 
+                            option(value="hostel") hostel
+                            option(value="day scholar") day scholar
+                .input-box 
+                    label(for="transport") transport:-
+                        select#admission-transport(name="transport") 
+                            option(value="#") select your transport
+                            option(value="coaching") coaching
+                            option(value="school") school
+                            option(value="both") both
+                button.btn(type="submmit") save & continue

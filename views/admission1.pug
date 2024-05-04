@@ -1,0 +1,94 @@
+extend admission 
+
+block admission 
+    .admission-progress 
+        //- .progress-bar 
+        //-     span.admission-active 
+        //-     span
+        //-     span
+        //-     span
+        .progress-item 
+            p.admission-active Student Information
+            p Additional Information
+            p Address Details
+            p Documents
+    .admission-form.align-center
+        if admission 
+            form#admission1update.align-center
+                .input-box 
+                    label(for="admission-name") name:- 
+                    input#admission-name(type="text", name="admission-name" value=`${admission.name}`)
+                .input-box 
+                    label(for="class") admitted into class :- 
+                    select#studentclass(name="class") 
+                        option(value=`${admission.studentclass}`)=`${admission.studentclass}th`
+                        option(value="6") 6th
+                        option(value="7") 7th
+                        option(value="8") 8th
+                        option(value="9") 9th
+                        option(value="10") 10th
+                        option(value="11") +2 First Year
+                        option(value="12") +2 Second Year
+                .input-box 
+                    label(for="medium") Medium:-
+                    select#admission-medium(name="medium") 
+                        option(value=`${admission.medium}`)=admission.medium
+                        option(value="english") English
+                        option(value="odia") Odia
+                .input-box 
+                    label(for="dob") date of birth:-
+                    input#admission-dob(type="date", name="dob" value=`${admission.dob}`)
+                .input-box 
+                    label(for="gender") Gender:-
+                    select#admission-gender(name="gender") 
+                        option(value=`${admission.gender}`)=admission.gender
+                        option(value="male") Male
+                        option(value="female") Female
+                .input-box 
+                    label(for="adhar") Aadhar Number:-
+                    input#admission-adhar(type="number", name="adhar",value=`${admission.adhar}`)
+                .input-box 
+                    label(for="phoneNo") Phone Numbar:- 
+                    input#admission-phoneNo(type="number", name="phoneNo",value=`${admission.phone}`)
+                .action
+                    button.btn(type="submmit") update & continue
+                    a(href=`/admission/${admission.admission}/page2`) 
+                        .btn next
+        else 
+            form#admission1.align-center
+                .input-box 
+                    label(for="admission-name") name:- 
+                    input#admission-name(type="text", name="admission-name")
+                .input-box 
+                    label(for="class") admitted into class :- 
+                    select#studentclass(name="class") 
+                        option(value="#") select your class
+                        option(value="6") 6th
+                        option(value="7") 7th
+                        option(value="8") 8th
+                        option(value="9") 9th
+                        option(value="10") 10th
+                        option(value="11") +2 first year
+                        option(value="12") +2 second year
+                .input-box 
+                    label(for="medium") Medium:-
+                    select#admission-medium(name="medium") 
+                        option(value="#") select your medium
+                        option(value="english") english
+                        option(value="odia") odia
+                .input-box 
+                    label(for="dob") date of birth:-
+                    input#admission-dob(type="date", name="dob")
+                .input-box 
+                    label(for="gender") Gender:-
+                    select#admission-gender(name="gender") 
+                        option(value="#") select your gender
+                        option(value="male") male
+                        option(value="female") female
+                .input-box 
+                    label(for="adhar") aadhar number:-
+                    input#admission-adhar(type="number", name="adhar")
+                .input-box 
+                    label(for="phoneNo") phone numbar:- 
+                    input#admission-phoneNo(type="number", name="phoneNo")
+                button.btn(type="submmit") save & continue

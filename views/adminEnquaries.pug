@@ -1,0 +1,20 @@
+extend admin 
+   
+block adminContent
+    .admin-enquary.align-center 
+        .enquary-heading 
+            h2 all Enquarise
+        table
+            tr  
+                th serial no
+                th name 
+                th email 
+                th phone number
+                th date
+            each enquari,index in enquary
+                tr
+                    td=index + 1
+                    td=enquari.name
+                    td=enquari.email
+                    td=enquari.phone
+                    td=enquari.createdAt.toLocaleDateString()

@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-margin: 20vh;
+}
+
+
+:root {
+    --theme-color: #e8c202;
+    --secondary-color: #3a1e75;
+    --heading-font: "Roboto", sans-serif;
+    --para-font: "Lato", sans-serif;
+    --text-color: #202020;
+    --sub-heading: "Quicksand", sans-serif;
+}
+
+p {
+    font-family: var(--para-font);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 130%;
+    padding: 10px;
+    color: #292929;
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 900;
+}
+
+label{
+    text-transform: capitalize;
+}
+
+h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    text-shadow: 0 0 5px black;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+h3 {
+    color: var(--text-color);
+    position: relative;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--sub-heading);
+    font-weight: 900;
+}
+
+h3::after {
+    content: "";
+    background-color: rgb(172, 48, 48);
+    height: 3px;
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    border-radius: 3px;
+    bottom: -5px;
+}
+
+body {
+    font-family: var(--para-font);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.btn {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: white;
+    background: var(--secondary-color);
+    border: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+
+}
+.name{
+    text-transform: capitalize;
+}
+
+/* table----------------------------------------- */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+/* page heading--------------------------------- */
+.page-head {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.page-head h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 0 5px black;
+}
+
+/* success and error message--------------------- */
+
+.alert {
+    padding: 1rem;
+    position: fixed;
+    z-index: 99999;
+    top: 1rem;
+    color: white;
+    border-radius: 5px;
+    left: 50%;
+    font-weight: 400;
+    transform: translateX(-50%);
+    letter-spacing: 1px;
+    animation: alert-anim 0.5s 1 linear;
+}
+
+@keyframes alert-anim {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -10vh);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.alert-err {
+    background-color: red;
+}
+
+.alert-success {
+    background-color: rgb(39, 146, 0);
+}
+option{
+    text-transform: capitalize;
+}
+input{
+    text-transform: capitalize;
+}
+.side{
+    justify-content: space-between;
+}
+.total{
+    background-color: white;
+}
+.total td{
+    font-weight: bold;
+    color: green;
+}

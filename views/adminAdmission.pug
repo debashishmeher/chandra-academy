@@ -1,0 +1,38 @@
+extend admin 
+
+block adminContent 
+    .admission-app 
+        b.para Dear Student / Parent / Guardian,
+        br 
+        br
+        b.para Welcome to our Institute’s Admission Centre. Please use this form to apply for the admission in our Institution. We need complete and accurate information about the student, so make sure you fill out all the fields.
+    .admission-option 
+            .admission-box 
+                h1 2024 admission now open
+                if user
+                    p you already login,click button to admission 
+                    button#admissionStart.btn admission now
+                else
+                    p you are not login or a nuw user please login to access
+                    a(href="/signup") 
+                        button.btn register now
+    .admin-admission-container 
+        each student in admission
+            a(href=`/admission/${student.id}`) 
+                .report-box.admin-admission-box 
+                    .rpt-status=student.status
+                    .report-item 
+                        span Name : 
+                        span.report-name=student.admission1[0].name
+                    .report-item 
+                        span Class : 
+                        span=student.admission1[0].studentclass
+                    .report-item 
+                        span Dob : 
+                        span=student.admission1[0].dob.toLocaleDateString()
+                    .report-item 
+                        span Adhar no : 
+                        span=student.admission1[0].adhar
+                    .report-item 
+                        span Phone no : 
+                        span=student.admission1[0].phone

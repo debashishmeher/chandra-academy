@@ -1,0 +1,95 @@
+extend admission 
+
+block admission 
+    .admission-report.align-center
+        .report-container 
+            h2 Admission report
+            .report-box 
+                img(src=`/./images/upload/${admissionrpt.admission4[0].studentPhoto}`, alt="")
+                .report-item 
+                    span Name : 
+                    span.report-name=admissionrpt.admission1[0].name
+                .report-item 
+                    span Class : 
+                    span=admissionrpt.admission1[0].studentclass
+                .report-item 
+                    span Dob : 
+                    span=admissionrpt.admission1[0].dob
+                .report-item 
+                    span Adhar no : 
+                    span=admissionrpt.admission1[0].adhar
+                .report-item 
+                    span Phone no : 
+                    span=admissionrpt.admission1[0].phone
+                    
+            .report-box 
+                .report-item 
+                    span Nationallity : 
+                    span=admissionrpt.admission2[0].nationallity
+                .report-item 
+                    span Religion : 
+                    span=admissionrpt.admission2[0].religion
+                .report-item 
+                    span Catagory : 
+                    span=admissionrpt.admission2[0].catagory
+                .report-item 
+                    span Father name : 
+                    span.report-name=admissionrpt.admission2[0].fatherName
+                .report-item 
+                    span Mother name : 
+                    span.report-name=admissionrpt.admission2[0].motherName
+                    
+            .report-box 
+                .report-item 
+                    span Village : 
+                    span=admissionrpt.admission3[0].village
+                .report-item 
+                    span Post Office : 
+                    span=admissionrpt.admission3[0].postOffice
+                .report-item 
+                    span PIN : 
+                    span=admissionrpt.admission3[0].pin
+                .report-item 
+                    span Dist : 
+                    span=admissionrpt.admission3[0].dist
+                .report-item 
+                    span Transport : 
+                    span=admissionrpt.admission3[0].transport
+                .report-item 
+                    span Stay : 
+                    span=admissionrpt.admission3[0].stay
+
+            .report-box 
+                .report-item.space-between 
+                    span Registration Fees : 
+                    span=admissionrpt.admission5[0].registrationFees.price
+                .report-item.space-between 
+                    span Lodging Fees : 
+                    span=admissionrpt.admission5[0].lodgingFees.price
+                .report-item.space-between 
+                    span Fooding Fees : 
+                    span=admissionrpt.admission5[0].foodingFees
+                .report-item.space-between 
+                    span Transportation Fees: 
+                    span=admissionrpt.admission5[0].transportationFees.price
+                .report-item.space-between 
+                    span Tuition Fees : 
+                    span=admissionrpt.admission5[0].tuitionFees
+                .report-item.space-between 
+                    span Monthly Discount : 
+                    span=admissionrpt.admission5[0].monthlyDiscount
+                .report-item.space-between 
+                    span Other Discount : 
+                    span=admissionrpt.admission5[0].otherDiscount
+                hr
+                .report-item.space-between 
+                    span Total : 
+                    span=admissionrpt.admission5[0].totalAmout
+                .report-item.space-between 
+                    span Payable Amount : 
+                    span=admissionrpt.admission5[0].totalDiscounted
+            .action
+                button.btn#createStudent student
+                a(href=`/admission/${admissionrpt.id}/page1`) 
+                    button.btn edit
+                    

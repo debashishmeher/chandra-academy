@@ -1,0 +1,100 @@
+extend admin 
+
+block adminContent 
+    .student-receip.payment-container 
+        .receipt-head 
+            img(src="/./images/logo.png", alt="logo")
+            .academic-info 
+                h2 chandra academy 
+                p Ambedkar Chowk, Near Bank of India, Sonepur, Odisha, pin-767017
+                p Phone no : 9861808323
+                p=`Session : ${student.admission.doa.getFullYear()} - ${student.admission.doa.getFullYear()+1}`
+        .receipt-body 
+            table
+                tr 
+                    th price head 
+                    th amount 
+                if(!lastpayment)
+                    tr 
+                        td Registration Fees 
+                        td=student.admission.admission5[0].registrationFees.price
+                if(!lastpayment)
+                    tr 
+                        td Lodging Fees
+                        td=student.admission.admission5[0].lodgingFees.price
+                if(lastpayment && student.admission.admission5[0].lodgingFees.status =="monthly")
+                    tr 
+                        td Lodging Fees
+                        td=student.admission.admission5[0].lodgingFees.price
+                if(student.admission.admission5[0].foodingFees != 0)
+                    tr 
+                        td Fooding Fees 
+                        td=student.admission.admission5[0].foodingFees
+                if(student.admission.admission5[0].transportationFees.price != 0)
+                    tr 
+                        td Transportation Fees
+                        td=student.admission.admission5[0].transportationFees.price
+                if(student.admission.admission5[0].tuitionFees != 0)
+                    tr 
+                        td Tuition Fees 
+                        td=student.admission.admission5[0].tuitionFees
+                if(student.admission.admission5[0].monthlyDiscount != 0)
+                    tr 
+                        td Monthly Discount 
+                        td=student.admission.admission5[0].monthlyDiscount
+                if(student.admission.admission5[0].otherDiscount != 0)
+                    tr 
+                        td Other Discount 
+                        td=student.admission.admission5[0].otherDiscount
+                if(lastpayment)
+                    tr.total 
+                        td Balance
+                        td=lastpayment.balance
+                if(lastpayment)
+                    tr.total 
+                        td Total Payable Amount
+                        td=`${lastpayment.monthlypay+lastpayment.balance}`
+                else
+                    tr.total 
+                        td Total Payable Amount
+                        td=student.admission.admission5[0].totalDiscounted
+        form#receipt-action 
+            .report-box 
+                if(lastpayment)
+                    .report-item 
+                        span Monthly Fees : 
+                        span=lastpayment.monthlypay
+                if(lastpayment)
+                    .report-item 
+                        span Total Payable Amount
+                        span=`${lastpayment.monthlypay+lastpayment.balance}`
+                else
+                    .report-item
+                        span Total Payable Amount :-
+                        span=student.admission.admission5[0].totalDiscounted
+                .report-item.space-between  
+                    span Discount : 
+                    input#paymentDisc(type="number", name="discount")
+                .report-item.space-between 
+                    span Receipt Amount : 
+                    input#receptAmount(type="number", name="receiptAmtount")
+                button.btn(type="submit") pay 
+
+                //- .report-item.space-between 
+                //-     span Tuition Fees : 
+                //-     span=admissionrpt.admission5[0].tuitionFees
+                //- .report-item.space-between 
+                //-     span Monthly Discount : 
+                //-     span=admissionrpt.admission5[0].monthlyDiscount
+                //- .report-item.space-between 
+                //-     span Other Discount : 
+                //-     span=admissionrpt.admission5[0].otherDiscount
+                //- hr
+                //- .report-item.space-between 
+                //-     span Total : 
+                //-     span=admissionrpt.admission5[0].totalAmout
+                //- .report-item.space-between 
+                //-     span Payable Amount : 
+                //-     span=admissionrpt.admission5[0].totalDiscounted
+            
+                    

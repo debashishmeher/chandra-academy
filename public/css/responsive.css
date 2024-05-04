@@ -1,0 +1,83 @@
+@media screen and (max-width:886px) {
+    .toggle {
+        display: flex;
+    }
+
+    .account-btn-head {
+        display: none;
+    }
+
+    .navbar-account {
+        display: block;
+    }
+
+    .navbar-container {
+        display: block;
+        background-color: #d4b104;
+        backdrop-filter: blur(15px);
+        position: fixed;
+        top: 11vh;
+        left: -100%;
+        width: 80%;
+        height: 90vh;
+        transition: 0.5s;
+    }
+
+    .navbar {
+        z-index: 999;
+        display: block;
+        margin-top: 3rem;
+    }
+
+    .navbar li a {
+        display: block;
+        text-transform: uppercase;
+        padding: 1rem;
+    }
+
+    .slidenav {
+        left: 0%
+    }
+
+    .login {
+        justify-content: flex-start;
+    }
+
+    .nav-social {
+        display: block;
+        border-top: 2px solid rgba(255, 255, 255, 0.49);
+        padding: 1rem;
+        position: sticky;
+        bottom: 0%;
+    }
+
+    .socials {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .socials a img {
+        width: 30px;
+        margin-top: 10px;
+    }
+
+    .facility-img {
+        order: 1;
+    }
+
+    .teacher-main {
+        gap: 5px;
+    }
+
+    .side-navbar {
+        top: 10%;
+    }
+
+    .side-menu {
+        top: 12%;
+    }
+    .progress-item p{
+        font-size: 0.6em;
+    }
+}

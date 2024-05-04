@@ -1,0 +1,26 @@
+extend base
+
+block content 
+    section.container 
+        .login-container 
+            h2.login-heading signup
+            form.login-form#signup(action="/signup") 
+                label(for="signup-name")
+                    p.useremail name 
+                    input#signup-name(type="text", name="signup-name",placeholder="Enter your name")
+                label(for="signup-email")
+                    p.useremail email 
+                    input#signup-email(type="text", name="signup-email",placeholder="Enter your email")
+                label(for="signup-password") 
+                    p.userpassword password 
+                    input#signup-password(type="password", name="login-password",placeholder="Enter your password")
+                label(for="signup-confirmPassword") 
+                    p.userpassword password 
+                    input#signup-confirmPassword(type="password", name="signup-confirmPassword",placeholder="Enter confirm password")
+                button.btn(type="submit") signup 
+                .other 
+                    p
+                    | I  have an account.
+                    a.signup-link(href="/login") login 
+                    
+                    

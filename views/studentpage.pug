@@ -1,0 +1,91 @@
+extend admin
+
+block adminContent 
+    .admin-studentpage-container
+        .student-left
+            .student-profile 
+                .student-photo.align-center 
+                    img(src=`/./images/upload/${student.admission.admission4[0].studentPhoto}`, alt="student photo")
+                    p.report-name=student.name
+                .student-info
+                    .report-item 
+                        span Class : 
+                        span=`${student.studentClass}th`
+                    .report-item 
+                        span Roll no : 
+                        span=student.rollno
+                    .report-item 
+                        span Medium: 
+                        span=student.medium.toUpperCase()
+        .student-right
+            .student-table-container
+                h2 General Information
+                table.student-table 
+                    tr 
+                        th Father Name 
+                        td.name=student.admission.admission2[0].fatherName
+                    tr 
+                        th Mother Name 
+                        td.name=student.admission.admission2[0].motherName
+                    tr 
+                        th Gender 
+                        td.name=student.gender
+                    tr 
+                        th Phone 
+                        td.name=student.phone
+                    tr 
+                        th Date Of Birth 
+                        td.name=student.admission.admission1[0].dob.toLocaleDateString()
+                    tr 
+                        th Aadhar no.
+                        td.name=student.admission.admission1[0].adhar
+                    tr 
+                        th Address
+                        td.name=`${student.admission.admission3[0].village}, ${student.admission.admission3[0].postOffice}, ${student.admission.admission3[0].dist}, ${student.admission.admission3[0].pin}`
+                br
+                a(href=`/admission/${student.admission.id}/page1`) 
+                    button.btn edit
+            .student-receipt 
+                .receipt-head 
+                    img(src="/./images/logo.png", alt="logo")
+                    .academic-info 
+                        h2 chandra academy 
+                        p Ambedkar Chowk, Near Bank of India, Sonepur, Odisha, pin-767017
+                        p Phone no : 9861808323
+                        p=`Session : ${student.admission.doa.getFullYear()} - ${student.admission.doa.getFullYear()+1}`
+                .receipt-body 
+                    table
+                        tr 
+                            th price head 
+                            th amount 
+                        tr 
+                            td Registration Fees 
+                            td=student.admission.admission5[0].registrationFees.price
+                        tr 
+                            td Lodging Fees
+                            td=student.admission.admission5[0].lodgingFees.price
+                        tr 
+                            td Fooding Fees 
+                            td=student.admission.admission5[0].foodingFees
+                        tr 
+                            td Transportation Fees
+                            td=student.admission.admission5[0].transportationFees.price
+                        tr 
+                            td Tuition Fees 
+                            td=student.admission.admission5[0].tuitionFees
+                        tr 
+                            td Monthly Discount 
+                            td=student.admission.admission5[0].monthlyDiscount
+                        tr 
+                            td Other Discount 
+                            td=student.admission.admission5[0].otherDiscount
+                        tr.total 
+                            td Total 
+                            td=student.admission.admission5[0].totalDiscounted
+                    .action 
+                        a(href=`/admission/${student.admission.id}/page5`) 
+                            button.btn edit
+                        a(href=`/admin/student/${student.id}/paymentHistory`) 
+                            button.btn History
+                        a(href=`/admin/student/${student.id}/payment`) 
+                            button.btn payment

@@ -1,0 +1,22 @@
+extend base
+
+block content 
+    section.container 
+        .login-container 
+            h2.login-heading login
+            form.login-form#login(action="/login") 
+                label(for="login-email")
+                    p.useremail email 
+                    input#login-email(type="text", name="login-email",placeholder="Enter your email")
+                label(for="login-password") 
+                    p.userpassword password 
+                    input#login-password(type="password", name="login-password",placeholder="Enter your password")
+                button.btn(type="submit") login 
+                .other 
+                    p 
+                        a(href="/forgot") forgot password?
+                    p
+                    | I don't have account.
+                    a.signup-link(href="/signup") signup 
+                    
+                    

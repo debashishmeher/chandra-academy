@@ -1,0 +1,40 @@
+extend base
+
+block content 
+    section.admission 
+        .admission-heading.align-center
+            h1 admission  
+            span page- 2 of 3
+        .admission-form.align-center
+            form#admission.align-center
+                .input-box 
+                    label(for="admission-name") name:- 
+                    input#admission-name(type="text", name="admission-name")
+                .input-box 
+                    label(for="class") admitted into class :- 
+                    select#class(name="class") 
+                        option(value="#") select your class
+                        option(value="6") 6th
+                        option(value="7") 7th
+                        option(value="8") 8th
+                        option(value="9") 9th
+                        option(value="10") 10th
+                        option(value="11") +2 first year
+                        option(value="12") +2 second year
+                .input-box 
+                    label(for="dob") date of birth:-
+                    input#dob(type="date", name="dob")
+                .input-box 
+                    label(for="gender") Gender:-
+                    select#gender(name="gender") 
+                        option(value="#") select your gender
+                        option(value="male") male
+                        option(value="female") female
+                .input-box 
+                    label(for="adhar") adhar number:-
+                    input#dob(type="number", name="adhar")
+                .input-box 
+                    label(for="phoneNo") phone numbar:- 
+                    input#phoneNo(type="number", name="phoneNo")
+                button.btn(type="submmit") save & continue
+        

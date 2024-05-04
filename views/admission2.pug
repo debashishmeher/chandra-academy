@@ -1,0 +1,58 @@
+extend admission 
+
+block admission 
+    .admission-progress 
+        //- .progress-bar 
+        //-     span
+        //-     span.admission-active 
+        //-     span
+        //-     span
+        .progress-item 
+            p Student Information
+            p.admission-active  Additional Information
+            p Address Details
+            p Documents
+    .admission-form.align-center
+        if admission 
+            form#admission2update.align-center
+                .input-box 
+                    label(for="admission-nationallity") nationallity:- 
+                    input#admission-nationallity(type="text", name="admission-nationallity",value=`${admission.nationallity}`)
+                
+                .input-box 
+                    label(for="religion") religion:-
+                    input#admission-religion(type="text", name="religion",value=`${admission.religion}`)
+                .input-box 
+                    label(for="catagory") catagory:-
+                    input#admission-catagory(type="text", name="catagory",value=`${admission.catagory}`)
+                .input-box 
+                    label(for="fatherName") fatherName:-
+                    input#admission-fatherName(type="text", name="fatherName",value=`${admission.fatherName}`)
+                .input-box 
+                    label(for="motherName") motherName:-
+                    input#admission-motherName(type="text", name="motherName",value=`${admission.motherName}`)
+                .action
+                    button.btn(type="submmit") update & continue
+                    a(href=`/admission/${admission.admission}/page3`) 
+                        .btn next
+
+        else
+            form#admission2.align-center
+                .input-box 
+                    label(for="admission-nationallity") nationallity:- 
+                    input#admission-nationallity(type="text", name="admission-nationallity")
+                
+                .input-box 
+                    label(for="religion") religion:-
+                    input#admission-religion(type="text", name="religion")
+                .input-box 
+                    label(for="catagory") catagory:-
+                    input#admission-catagory(type="text", name="catagory")
+                .input-box 
+                    label(for="fatherName") fatherName:-
+                    input#admission-fatherName(type="text", name="fatherName")
+                .input-box 
+                    label(for="motherName") motherName:-
+                    input#admission-motherName(type="text", name="motherName")
+                
+                button.btn(type="submmit") save & continue

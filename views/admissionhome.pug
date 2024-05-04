@@ -1,0 +1,23 @@
+extend admission 
+
+block admission
+    .admission-app 
+        b.para Dear Student / Parent / Guardian,
+        br 
+        br
+        b.para Welcome to our Institute’s Admission Centre. Please use this form to apply for the admission in our Institution. We need complete and accurate information about the student, so make sure you fill out all the fields.
+    .admission-option 
+            .admission-box 
+                h1 2024 admission now open
+                if user
+                    p you already login,click button to admission
+                    //- a(href=`/admission/${user.id}/page1`) 
+                    button#admissionStart.btn admission now
+                else
+                    p you are not login or a nuw user please login to access
+                    a(href="/signup") 
+                        button.btn register now
+            //- .admission-box 
+            //-     h1 2024 re-admission now open
+            //-     p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, mollitia
+            //-     button.btn re-admission now

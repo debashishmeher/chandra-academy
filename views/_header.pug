@@ -1,0 +1,79 @@
+header.header 
+    .head
+        a(href="/") 
+            .logo.align-center 
+                img(src="/./images/logo.png", alt="logo")
+                .logo-name CHANDRA 
+                    br  
+                    span academy 
+        .account-btn-head
+            .login-logout.align-center
+                if user
+                    if user.role == "admin"
+                        a(href="/admin" onclick="togglefun()")
+                            .login.align-center
+                                img(src="/./images/user.svg", alt="")
+                                span=user.name.split(" ")[0]
+                        .logout.align-center.logout-btn
+                            img(src="/./images/logout.svg", alt="")
+                    else 
+                        a(href="/login" onclick="togglefun()")
+                            .login.align-center
+                                img(src="/./images/user.svg", alt="")
+                                span=user.name.split(" ")[0]
+                        .logout.align-center.logout-btn
+                            img(src="/./images/logout.svg", alt="")
+                    
+                else 
+                    .accoutn-btn.align-center
+                        a(href="/login" onclick="togglefun()")
+                            .login
+                                span LOGIN
+                        a(href="/signup" onclick="togglefun()")
+                            .login
+                                span REGISTER
+
+        .toggle#toggle(onclick="togglefun()")
+            span.first
+            span.second
+            span.third
+    nav.navbar-container 
+        ul.navbar 
+            li: a(href="/" onclick="togglefun()") home
+            li: a(href="/about" onclick="togglefun()") about
+            //- li: a(href="/admission" onclick="togglefun()") admission
+            li: a(href="/teachers" onclick="togglefun()") staff
+            li: a(href="/results" onclick="togglefun()") results
+            li: a(href="/fecility" onclick="togglefun()") facilities
+            li: a(href="/#contact" onclick="togglefun()") enroll
+        .navbar-account
+            
+            if user
+                .login.align-center
+                    a(href="/login" onclick="togglefun()")
+                        img(src="/./images/user.svg", alt="")
+                        span=user.name.split(" ")[0]
+                    .logout.align-center.logout-btn
+                        img(src="/./images/logout.svg", alt="")
+            else 
+                a(href="/login" onclick="togglefun()")
+                    .login
+                        span LOGIN
+                a(href="/signup" onclick="togglefun()")
+                    .login
+                        span REGISTER
+        .nav-social 
+            .logo-name CHANDRA 
+                br
+                span academy
+            .socials 
+                a(href="https://www.facebook.com/profile.php?id=61556794866402",target="_blank")
+                    img(src="/./images/facebook-icon.svg", alt="alt")
+                a(href="https://www.instagram.com/chandra_academy__?igsh=MTd3czd2d2Fyb3F1eA==",target="_blank")
+                    img(src="/./images/insta-icon.svg", alt="alt")
+                a(href="/")
+                    img(src="/./images/whatsapp-icon.svg", alt="alt")
+                a(href="https://www.youtube.com/@ChandraAcademy.", target="_blank")
+                    img(src="/./images/youtube-icon.svg", alt="alt")
+    
+

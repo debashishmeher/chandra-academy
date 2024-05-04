@@ -1,0 +1,21 @@
+extend base
+
+block content 
+    section.admin-container 
+        .side-navbar
+            img.side-cross(src="/./images/cross.svg", alt="", onclick="sideToggle()")
+            .side-nav-head 
+                img(src="/./images/logo.png", alt="")
+                .logo-name CHANDRA 
+                    br
+                    span academy
+            ul 
+                li: a(href="/admin") setting
+                li: a(href="/admin/admission") admission
+                li: a(href="/admin/students") students
+                li: a(href="/admin/enquaries") enquaries
+        .admin-main
+            img.side-menu(src="/./images/menu.svg", alt="",onclick="sideToggle()")
+            block adminContent 
+
+

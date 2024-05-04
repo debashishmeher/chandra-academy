@@ -1,0 +1,49 @@
+
+extend admission 
+
+block admission 
+    .admission-progress 
+        //- .progress-bar 
+        //-     span
+        //-     span
+        //-     span
+        //-     span.admission-active 
+        .progress-item 
+            p Student Information
+            p Additional Information
+            p Address Details
+            p.admission-active Documents
+    .admission-form.align-center
+        if admission 
+            form#admission4update.align-center
+                .image-box.align-center
+                    img#student-photo-preview(src=`/./images/upload/${admission.studentPhoto}`, alt="student img")
+                    input#studentPhoto(type="file", name="studentPhoto")
+                    label(for="studentPhoto") upload student photo
+                .image-box.align-center 
+                    img#adhar-photo-preview(src=`/./images/upload/${admission.adharPhoto}`, alt="")
+                    input#adharPhoto(type="file", name="adharPhoto")
+                    label(for="adharPhoto") adhar photo
+                .image-box.align-center 
+                    img#mark-photo-preview(src=`/./images/upload/${admission.markPhoto}`, alt="")
+                    input#markPhoto(type="file", name="markPhoto")
+                    label(for="markPhoto") previous year marksheet photo
+                .action
+                    button.btn(type="submmit") update & continue
+                    a(href=`/admission/${admission.admission}/page5`) 
+                        .btn next
+        else 
+            form#admission4.align-center
+                .image-box.align-center
+                    img#student-photo-preview(src="#", alt="")
+                    input#studentPhoto(type="file", name="studentPhoto")
+                    label(for="studentPhoto") upload student photo
+                .image-box.align-center 
+                    img#adhar-photo-preview(src="#", alt="")
+                    input#adharPhoto(type="file", name="adharPhoto")
+                    label(for="adharPhoto") adhar photo
+                .image-box.align-center 
+                    img#mark-photo-preview(src="#", alt="")
+                    input#markPhoto(type="file", name="markPhoto")
+                    label(for="markPhoto") previous year marksheet photo
+                button.btn(type="submmit") save & continue

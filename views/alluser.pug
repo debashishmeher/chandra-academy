@@ -1,0 +1,9 @@
+extend base
+
+block content 
+    .card-container 
+        each user in alluser 
+            .card 
+                h2=user.name 
+                p=user.email 
+                p.date=user.role

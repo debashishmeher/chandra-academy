@@ -1,0 +1,107 @@
+
+extend admission 
+
+block admission 
+    .admission-progress 
+        //- .progress-bar 
+        //-     span
+        //-     span
+        //-     span
+        //-     span
+        //-     span.admission-active 
+        .progress-item 
+            p Student Information
+            p Additional Information
+            p Address Details
+            p Documents
+            p.admission-active Payment Details
+    .admission-form.align-center
+        if admission
+            form#admission5update.align-center
+                .input-box
+                    input#registrationFees(type="checkbox", name="paymentfee", checked= admission.registrationFees ? true : false, value=`${admission.registrationFees}`) 
+                    label(for="paymentfee") Registration Fees
+                .input-box.input-radio 
+                    input(type="radio", name="registration", value="new") 
+                    label(for="registration")  new 
+                    input(type="radio", name="registration", value="old") 
+                    label(for="registration")  old 
+                .input-box
+                    input#lodgingFees(type="checkbox", name="paymentfee",checked= admission.lodgingFees ? true : false, value=`${admission.lodgingFees}`) 
+                    label(for="paymentfee") Lodging Fees  
+                .input-box 
+                    input(type="radio", name="lodging", value="yearly") 
+                    label(for="lodging") yearly 
+                    input(type="radio", name="lodging", value="monthly") 
+                    label(for="lodging") monthly
+                .input-box
+                    input#foodingFees(type="checkbox", name="paymentfee",checked= admission.foodingFees ? true : false, value=`${admission.foodingFees}`) 
+                    label(for="paymentfee") Fooding Fees 
+                .input-box
+                    input#transportationFees(type="checkbox", name="paymentfee",checked= admission.transportationFees ? true : false, value=`${admission.transportationFees}`) 
+                    label(for="paymentfee")  Transportation Fees
+                .input-box 
+                    input(type="radio", name="transportation", value="school") 
+                    label(for="transportation") School
+                    input(type="radio", name="transportation", value="tuition") 
+                    label(for="transportation") Tuition 
+                    input(type="radio", name="transportation", value="both") 
+                    label(for="transportation") Both
+                .input-box
+                    input#tuitionFees(type="checkbox", name="paymentfee",checked= admission.tuitionFees ? true : false, value=`${admission.tuitionFees}`) 
+                    label(for="paymentfee")  Tuition Fees
+                .input-box 
+                    input#monthlyDiscount(type="checkbox", name="paymentfee",checked= admission.monthlyDiscount ? true : false, value=`${admission.monthlyDiscount}`) 
+                    label(for="paymentfee") Automatic Monthly Discount  
+                    input#monthlyDisc(type="number", name="monthlydisc")
+                .input-box 
+                    input#otherDiscount(type="checkbox", name="paymentfee",checked= admission.otherDiscount ? true : false, value=`${admission.otherDiscount}`) 
+                    label(for="paymentfee") Other Discount  
+                    input#otherDisc(type="number", name="otherdisc")
+                .action
+                    button.btn(type="submmit") update & continue
+                    a(href=`/admission/${admission.admission}`) 
+                        .btn next
+        else
+            form#admission5.align-center
+                .input-box
+                    input#registrationFees(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee") Registration Fees
+                .input-box.input-radio 
+                    input(type="radio", name="registration", value="new") 
+                    label(for="registration")  new 
+                    input(type="radio", name="registration", value="old") 
+                    label(for="registration")  old 
+                .input-box
+                    input#lodgingFees(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee") Lodging Fees  
+                .input-box 
+                    input(type="radio", name="lodging", value="yearly") 
+                    label(for="lodging") yearly 
+                    input(type="radio", name="lodging", value="monthly") 
+                    label(for="lodging") monthly
+                .input-box
+                    input#foodingFees(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee") Fooding Fees 
+                .input-box
+                    input#transportationFees(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee")  Transportation Fees
+                .input-box 
+                    input(type="radio", name="transportation", value="school") 
+                    label(for="transportation") School
+                    input(type="radio", name="transportation", value="tuition") 
+                    label(for="transportation") Tuition 
+                    input(type="radio", name="transportation", value="both") 
+                    label(for="transportation") Both
+                .input-box
+                    input#tuitionFees(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee")  Tuition Fees
+                .input-box 
+                    input#monthlyDiscount(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee") Automatic Monthly Discount  
+                    input#monthlyDisc(type="number", name="monthlydisc")
+                .input-box 
+                    input#otherDiscount(type="checkbox", name="paymentfee") 
+                    label(for="paymentfee") Other Discount  
+                    input#otherDisc(type="number", name="otherdisc")
+                button.btn(type="submmit") finish
