@@ -28,6 +28,15 @@ exports.getAdmission = catchAsync(async (req, res, next) => {
 
   res.status(200).render("adminAdmission", admission);
 });
+exports.editDate=catchAsync(async(req,res,next)=>{
+  const studentId=req.params.studentId;
+  const student=await Student.findById(studentId)
+  await Admission.findByIdAndUpdate(student.admission.id,req.body.doa)
+  res.status(200).json({
+    status:"success",
+    message:`admission date change to ${req.body.doa}`
+  })
+})
 
 exports.getOneAdmission = catchAsync(async (req, res, next) => {
   const admissionNo = req.params.admissionId;

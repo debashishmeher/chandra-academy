@@ -1258,3 +1258,7 @@ header {
 .receipt-history{
     padding: 1rem 10%;
 }
+.payment-details{
+    margin: 5%;
+    max-width: 900px;
+}

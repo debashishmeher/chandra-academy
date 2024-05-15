@@ -1,0 +1,58 @@
+extend admin
+
+block adminContent 
+    .align-center
+        .student-receipt.payment-details 
+            .receipt-head 
+                img(src="/./images/logo.png", alt="logo")
+                .academic-info 
+                    h2 chandra academy 
+                    p Ambedkar Chowk, Near Bank of India, Sonepur, Odisha, pin-767017
+                    p Phone no : 9861808323
+                    p=`Session : ${student.admission.doa.getFullYear()} - ${student.admission.doa.getFullYear()+1}`
+            .receipt-body 
+                table
+                    tr 
+                        th price head 
+                        th amount 
+                    if(payment.registrationFees != 0)
+                        tr 
+                            td Registration Fees 
+                            td=payment.registrationFees
+                    if(payment.lodgingFees != 0)
+                        tr 
+                            td Lodging Fees
+                            td=payment.lodgingFees
+                   
+                    if(payment.foodingFees != 0)
+                        tr 
+                            td Fooding Fees 
+                            td=payment.foodingFees
+                    if(payment.transportationFees != 0)
+                        tr 
+                            td Transportation Fees
+                            td=payment.transportationFees
+                    if(student.admission.admission5[0].tuitionFees != 0)
+                        tr 
+                            td Tuition Fees 
+                            td=student.admission.admission5[0].tuitionFees
+                    if(payment.monthlyDiscount != 0)
+                        tr 
+                            td Monthly Discount 
+                            td=payment.monthlyDiscount
+                    if(payment.otherDiscount != 0 && payment.otherDiscount != null)
+                        tr 
+                            td Other Discount 
+                            td=payment.otherDiscount
+                    tr.total 
+                        td Total Payable Amount
+                        td=payment.payAmount
+                    tr.total 
+                        td Payment recept
+                        td=payment.receptAmount
+
+                    if(payment.balance != 0)
+                        tr.total 
+                            td Balance
+                            td=payment.balance
+                

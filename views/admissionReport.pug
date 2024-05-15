@@ -77,10 +77,10 @@ block admission
                     span=admissionrpt.admission5[0].tuitionFees
                 .report-item.space-between 
                     span Monthly Discount : 
-                    span=admissionrpt.admission5[0].monthlyDiscount
+                    span=`- ${admissionrpt.admission5[0].monthlyDiscount}`
                 .report-item.space-between 
                     span Other Discount : 
-                    span=admissionrpt.admission5[0].otherDiscount
+                    span=`- ${admissionrpt.admission5[0].otherDiscount}`
                 hr
                 .report-item.space-between 
                     span Total : 

@@ -13,10 +13,20 @@ block adminContent
                 th Balance
             each payment in payments
                 tr 
-                    td=payment.bookNo
+                    td.link
+                        a(href=`/admin/payment/${payment.id}`)=payment.bookNo
                     td=payment.dateAt.toLocaleDateString()
                     td=payment.monthlypay
                     td=payment.payAmount
                     td=payment.discount
                     td=payment.receptAmount
                     td=payment.balance
+        br
+        if(total)
+            table 
+                tr 
+                    td Total Amount
+                    td.total=`${total}.00/-`
+        if studentId
+            a(href=`/admin/student/${studentId}`) 
+                button.btn back
