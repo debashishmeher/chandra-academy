@@ -18,7 +18,7 @@ exports.login = async (email, password) => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://localhost:4000/login",
+      url: "https://chandraacademysonepur.com/login",
       data: {
         email,
         password,
@@ -41,7 +41,7 @@ exports.logout = async () => {
   try {
     const response = await axios({
       method: "get",
-      url: "http://localhost:4000/logout",
+      url: "https://chandraacademysonepur.com/logout",
       httpOnly: true,
     });
 
@@ -61,7 +61,7 @@ exports.signup = async (name, email, password, confirmPassword) => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://localhost:4000/signup",
+      url: "https://chandraacademysonepur.com/signup",
       data: {
         name,
         email,
@@ -85,7 +85,7 @@ exports.forgot = async (email) => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://localhost:4000/forgot",
+      url: "https://chandraacademysonepur.com/forgot",
       data: {
         email,
       },
@@ -104,7 +104,7 @@ exports.reset = async (password, confirmPassword) => {
   try {
     const response = await axios({
       method: "patch",
-      url: `http://localhost:4000/resetPassword/${resetToken}`,
+      url: `https://chandraacademysonepur.com/resetPassword/${resetToken}`,
       data: {
         password,
         confirmPassword,
@@ -125,7 +125,7 @@ exports.reset = async (password, confirmPassword) => {
 exports.buying = async (productId) => {
   try {
     const resp = await axios(
-      `http://localhost:4000/product/checkout/${productId}`
+      `https://chandraacademysonepur.com/product/checkout/${productId}`
     );
     if (resp.data.status === "success") {
       showAlert("success", "Redirect to Payment Successful.");
@@ -178,7 +178,7 @@ exports.enroll = async (name, email, phone) => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://localhost:4000/enroll",
+      url: "https://chandraacademysonepur.com/enroll",
       data: {
         name,
         email,
@@ -201,7 +201,7 @@ exports.admission = async () => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://localhost:4000/admission",
+      url: "https://chandraacademysonepur.com/admission",
 
       httpOnly: true,
     });
@@ -222,7 +222,7 @@ exports.admission1 = async (name, phone, studentclass,medium, dob, gender, adhar
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:4000/admission/${admissionId}/page1`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page1`,
       data: {
         name,
         phone,
@@ -251,7 +251,7 @@ exports.admission1update = async (name, phone, studentclass,medium, dob, gender,
   try {
     const response = await axios({
       method: "patch",
-      url: `http://localhost:4000/admission/${admissionId}/page1`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page1`,
       data:{
         name, phone, studentclass,medium, dob, gender, adhar
       },
@@ -280,7 +280,7 @@ exports.admission2 = async (
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:4000/admission/${admissionId}/page2`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page2`,
       data: {
         nationallity,
         religion,
@@ -313,7 +313,7 @@ exports.admission2update = async (
   try {
     const response = await axios({
       method: "patch",
-      url: `http://localhost:4000/admission/${admissionId}/page2`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page2`,
       data: {
         nationallity,
         religion,
@@ -348,7 +348,7 @@ exports.admission3 = async (
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:4000/admission/${admissionId}/page3`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page3`,
       data: {
         village,
         postOffice,
@@ -385,7 +385,7 @@ exports.admission3update = async (
   try {
     const response = await axios({
       method: "patch",
-      url: `http://localhost:4000/admission/${admissionId}/page3`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page3`,
       data: {
         village,
         postOffice,
@@ -421,7 +421,7 @@ exports.admission5 = async (
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:4000/admission/${admissionId}/page5`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page5`,
       data: {
         registrationFees,
         lodgingFees,
@@ -462,7 +462,7 @@ exports.admission5update = async (
   try {
     const response = await axios({
       method: "patch",
-      url: `http://localhost:4000/admission/${admissionId}/page5`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/page5`,
       data: {
         registrationFees,
         lodgingFees,
@@ -498,7 +498,7 @@ exports.admission4=async(formData)=>{
   try {
     const response=await axios({
      method:"post",
-     url:`http://localhost:4000/admission/${admissionId}/page4`,
+     url:`https://chandraacademysonepur.com/admission/${admissionId}/page4`,
      data:formData,
      config
     })
@@ -525,7 +525,7 @@ exports.admission4update=async(formData)=>{
   try {
     const response=await axios({
      method:"patch",
-     url:`http://localhost:4000/admission/${admissionId}/page4`,
+     url:`https://chandraacademysonepur.com/admission/${admissionId}/page4`,
      data:formData,
      config
     })
@@ -548,7 +548,7 @@ exports.createStudent = async () => {
   try {
     const response = await axios({
       method: "post",
-      url: `http://localhost:4000/admission/${admissionId}/student`,
+      url: `https://chandraacademysonepur.com/admission/${admissionId}/student`,
       httpOnly: true,
     });
 
@@ -568,7 +568,7 @@ exports.createPayment = async (discount,receptAmount) => {
   try {
     const response = await axios({
       method: "post",
-      url: `http://localhost:4000/admin/student/${studentId}/payment`,
+      url: `https://chandraacademysonepur.com/admin/student/${studentId}/payment`,
       data:{
         discount,receptAmount
       },
