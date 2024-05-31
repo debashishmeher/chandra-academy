@@ -1273,6 +1273,7 @@ header {
 .payment-details{
     margin: 5%;
     max-width: 900px;
+
 }
 .student-information{
     display: flex;
@@ -1285,5 +1286,6 @@ header {
     color: green;
     text-transform: capitalize;
     font-weight:bold;
+
 
 }

@@ -8,7 +8,7 @@ const admissionController = require("../controller/admissionController");
 
 Router.use(authController.protect, authController.acessTo("admin"));
 
-Router.route("/student/:studentId/updateStudent").patch(
+Router.route("/student/:studentId/updateAdmissionDate").patch(
   admissionController.editDate
 );
 Router.route("/student/:studentId").get(adminController.getStudentDate);
@@ -25,5 +25,6 @@ Router.route("/payment/:paymentId")
   .post(paymentController.createPayment)
   .get(paymentController.paymentDetails);
 
-Router.route("/defulder").get(paymentController.defulderlist)
+Router.route("/defulder").get(paymentController.defulderlist);
+
 module.exports = Router;

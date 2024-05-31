@@ -38,7 +38,11 @@ const paymentSchema=new mongoose.Schema({
    lodgingFees:{
     type:Number,
     default:0
+
     },
+
+
+
    foodingFees:{
     type:Number,
     default:0
