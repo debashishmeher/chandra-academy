@@ -6,6 +6,11 @@ block adminContent
             tr 
                 th Book no
                 th Date
+                th Student Name
+                th Class
+                th Medium
+                th Section
+                th Contact
                 th Monthly
                 th Payable
                 th Discount
@@ -13,10 +18,28 @@ block adminContent
                 th Balance
             each payment in payments
                 tr 
-                    td=payment.bookNo
+                    td.link
+                        a(href=`/admin/payment/${payment.id}`)=payment.bookNo
                     td=payment.dateAt.toLocaleDateString()
+                    td=payment.studentId.name
+                    td=payment.studentId.studentClass
+                    td=payment.studentId.medium
+                    if(payment.studentId.sec)
+                        td=payment.studentId.sec
+                    else 
+                        td undefined
+                    td=payment.studentId.phone
                     td=payment.monthlypay
                     td=payment.payAmount
                     td=payment.discount
                     td=payment.receptAmount
                     td=payment.balance
+        br
+        if(total)
+            table 
+                tr 
+                    td Total Amount
+                    td.total=`${total}.00/-`
+        if studentId
+            a(href=`/admin/student/${studentId}`) 
+                button.btn back

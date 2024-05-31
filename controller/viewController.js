@@ -75,14 +75,15 @@ exports.admin = (req, res, next) => {
   res.status(200).render("adminSetting");
 };
 exports.adminAdmission = catchAsync(async (req, res, next) => {
-  const admission = await Admission.find({ status: "complete" });
+  const admission = await Admission.find({$or:[{status:"start"},{status:"complete"}]});
   res.status(200).render("adminAdmission", { admission });
 });
 exports.adminStudents = catchAsync(async (req, res, next) => {
   console.log(req.query);
-  const students = await Student.find(req.query);
+  const query=req.query
+  const students = await Student.find(query);
   console.log(students.length);
-  res.status(200).render("adminStudents", { students });
+  res.status(200).render("adminStudents", {query, students });
 });
 exports.results = (req, res, next) => {
   res.status(200).render("results");

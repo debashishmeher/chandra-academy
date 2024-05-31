@@ -19,8 +19,20 @@ const studentSchema = new mongoose.Schema(
     medium:{
       type:String
     },
+    sec:{
+      type:String
+    },
     photo:{
       type:String
+    },
+    doa:{
+      type:Date,
+      default:Date.now()
+    },
+    registrationStatus:{
+      type:String,
+      enum:["yes","no"],
+      default:"no"
     },
     admission: {
       type: mongoose.Schema.ObjectId,
@@ -31,12 +43,12 @@ const studentSchema = new mongoose.Schema(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-studentSchema.pre(/^find/, function (next) {
-  this.populate({
-    path: "admission",
-  });
-  next();
-});
+// studentSchema.pre(/^find/, function (next) {
+//   this.populate({
+//     path: "admission",
+//   });
+//   next();
+// });
 
 const Student = mongoose.model("Student", studentSchema);
 module.exports = Student;

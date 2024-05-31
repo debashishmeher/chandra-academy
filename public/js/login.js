@@ -551,11 +551,50 @@ exports.createStudent = async () => {
       url: `http://localhost:4000/admission/${admissionId}/student`,
       httpOnly: true,
     });
-
+    
     if (response.data.status === "success") {
       showAlert("success", "student create successfully.");
       window.setTimeout(() => {
-        location.assign("/admin/students");
+        location.assign(`/admin/student/${response.data.student.id}`);
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert("err", err.response.data.message);
+  }
+};
+exports.deleteAdmission = async (id) => {
+  const admissionId = id
+  try {
+    const response = await axios({
+      method: "delete",
+      url: `http://localhost:4000/admission/${admissionId}`,
+      httpOnly: true,
+    });
+    
+    if (response.data.status === "success") {
+      showAlert("success", response.data.message);
+      location.assign("/admin/admission");
+    }
+  } catch (err) {
+    showAlert("err", err.response.data.message);
+  }
+};
+
+exports.updateStudent = async (updateData) => {
+  console.log(updateData);
+  console.log("update student");
+  const admissionId = window.location.pathname.split("/")[3];
+  try {
+    const response = await axios({
+      method: "patch",
+      url: `http://localhost:4000/admin/student/${admissionId}/updateStudent`,
+      httpOnly: true,
+      data:updateData
+    });
+    if (response.data.status === "success") {
+      showAlert("success", "update student");
+      window.setTimeout(() => {
+        location.assign(`/admin/student/${admissionId}`);
       }, 1000);
     }
   } catch (err) {

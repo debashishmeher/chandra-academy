@@ -1205,6 +1205,18 @@ header {
     font-weight: bold;
 }
 
+#updateStudent{
+    max-width: 300px;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid rgb(182, 182, 182);
+    border-radius: 1rem;
+}
+#updateStudent .input-box select,#updateStudent .input-box input{
+    flex: 1 1 200px;
+
+}
+
 .rollno{
     font-weight: bold;
     color: green;
@@ -1257,4 +1269,21 @@ header {
 }
 .receipt-history{
     padding: 1rem 10%;
+}
+.payment-details{
+    margin: 5%;
+    max-width: 900px;
+}
+.student-information{
+    display: flex;
+    .information{
+        padding: 1rem;
+        flex: 1 1 200px;
+    }
+}
+.headline{
+    color: green;
+    text-transform: capitalize;
+    font-weight:bold;
+
 }

@@ -65,36 +65,27 @@ block adminContent
                         span Monthly Fees : 
                         span=lastpayment.monthlypay
                 if(lastpayment)
+                    if(lastpayment.monthNo>=new Date().getMonth()+1)
+                        p.headline your payment is upto date you have only balance
+                hr
+                if(lastpayment)
                     .report-item 
                         span Total Payable Amount
-                        span=`${lastpayment.monthlypay+lastpayment.balance}`
+                        span=`${lastpayment.monthlypay * monthNo+lastpayment.balance}`
                 else
+                    //- .report-item
+                    //-     span Per Day Amount :-
+                    //-     span=student.admission.admission5[0].totalDiscounted
                     .report-item
                         span Total Payable Amount :-
                         span=student.admission.admission5[0].totalDiscounted
+                hr
                 .report-item.space-between  
                     span Discount : 
                     input#paymentDisc(type="number", name="discount")
+                hr
                 .report-item.space-between 
                     span Receipt Amount : 
                     input#receptAmount(type="number", name="receiptAmtount")
+                hr 
                 button.btn(type="submit") pay 
-
-                //- .report-item.space-between 
-                //-     span Tuition Fees : 
-                //-     span=admissionrpt.admission5[0].tuitionFees
-                //- .report-item.space-between 
-                //-     span Monthly Discount : 
-                //-     span=admissionrpt.admission5[0].monthlyDiscount
-                //- .report-item.space-between 
-                //-     span Other Discount : 
-                //-     span=admissionrpt.admission5[0].otherDiscount
-                //- hr
-                //- .report-item.space-between 
-                //-     span Total : 
-                //-     span=admissionrpt.admission5[0].totalAmout
-                //- .report-item.space-between 
-                //-     span Payable Amount : 
-                //-     span=admissionrpt.admission5[0].totalDiscounted
-            
-                    

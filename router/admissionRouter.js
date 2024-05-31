@@ -17,8 +17,8 @@ Router.route("/").post(
 );
 
 Router.route("/:admissionId")
-  .post(authController.protect, admissionController.createAdmission)
-  .patch(authController.protect, admissionController.deleteAdmission)
+  .post(admissionController.createAdmission)
+  .delete(admissionController.deleteAdmission)
   .get(admissionController.getOneAdmission);
 
 Router.route("/:admissionId/page1").post(

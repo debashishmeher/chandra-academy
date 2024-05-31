@@ -5,7 +5,7 @@ block adminContent
         .student-left
             .student-profile 
                 .student-photo.align-center 
-                    img(src=`/./images/upload/${student.admission.admission4[0].studentPhoto}`, alt="student photo")
+                    img(src=`/./images/upload/${student.photo}`, alt="student photo")
                     p.report-name=student.name
                 .student-info
                     .report-item 
@@ -42,9 +42,27 @@ block adminContent
                     tr 
                         th Address
                         td.name=`${student.admission.admission3[0].village}, ${student.admission.admission3[0].postOffice}, ${student.admission.admission3[0].dist}, ${student.admission.admission3[0].pin}`
+                    tr 
+                        th Date of Admission
+                        td=student.doa.toLocaleString()
                 br
                 a(href=`/admission/${student.admission.id}/page1`) 
                     button.btn edit
+                form.login-form#updateStudent
+                    .input-box 
+                        label(for="class") admitted into class :- 
+                        select#studentSection(name="class") 
+                            option(value=`${student.sec}`)=student.sec
+                            option(value="A") A
+                            option(value="B") B
+                    .input-box 
+                        label(for="dob") Date of Admission:-
+                        input#studentDoa(type="text", name="doa", value=`${student.doa.toLocaleDateString()}` onfocus="this.type='date'" onblur="this.type='text'")
+                    .input-box 
+                        label(for="rollno") Rollno:-
+                        input#studentRollno(type="text", name="rollno", value=`${student.rollno}`)
+                    button.btn(type="submit") update
+
             .student-receipt 
                 .receipt-head 
                     img(src="/./images/logo.png", alt="logo")

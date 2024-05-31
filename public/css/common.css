@@ -190,7 +190,18 @@ input{
 .total{
     background-color: white;
 }
+
 .total td{
     font-weight: bold;
     color: green;
+}
+.total{
+    color: green;
+    font-weight: bold;
+}
+.link a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: var(--secondary-color);
 }

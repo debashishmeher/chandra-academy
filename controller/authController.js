@@ -11,6 +11,12 @@ const signToken = (id) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
+  if(req.body.role=="admin"){
+    const admin=await User.findOne({role:"admin"})
+    if(admin){
+      return next(new AppError("admin already exist",404))
+    }
+  }
   const user = await User.create(req.body);
   const url = "http://localhost:4000/";
   await new sendEmail(user, url).sendWelcome();

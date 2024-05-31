@@ -17,22 +17,31 @@ block adminContent
                     a(href="/signup") 
                         button.btn register now
     .admin-admission-container 
-        each student in admission
-            a(href=`/admission/${student.id}`) 
-                .report-box.admin-admission-box 
-                    .rpt-status=student.status
-                    .report-item 
-                        span Name : 
-                        span.report-name=student.admission1[0].name
-                    .report-item 
-                        span Class : 
-                        span=student.admission1[0].studentclass
-                    .report-item 
-                        span Dob : 
-                        span=student.admission1[0].dob.toLocaleDateString()
-                    .report-item 
-                        span Adhar no : 
-                        span=student.admission1[0].adhar
-                    .report-item 
-                        span Phone no : 
-                        span=student.admission1[0].phone
+       table 
+            tr 
+                th Name
+                th Date
+                th Class
+                th Medium
+                th Gender
+                th Edit
+                th Delete
+            each student in admission
+                if(student.admission1[0])
+                    tr 
+                        td=student.admission1[0].name
+                        td=student.doa.toLocaleString()
+                        td=student.admission1[0].studentclass
+                        td=student.admission1[0].medium
+                        td=student.admission1[0].gender
+                        td.link 
+                            a(href=`/admission/${student.id}/page1`) edit
+                        td.link 
+                            button.btn.deleteAdmission(type="submit", data-id=`${student.id}`) delete
+                else 
+                    tr
+                        td undefined
+                        td.link 
+                            a(href=`/admission/${student.id}/page1`) edit
+                        td.link 
+                            button.btn.deleteAdmission(type="submit", data-id=`${student.id}`) delete

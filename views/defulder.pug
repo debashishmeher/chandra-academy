@@ -1,0 +1,54 @@
+extend admin 
+
+block adminContent
+    form.align-center(action="/admin/defulder", method="get") 
+        .input-box 
+            select(name="studentClass") 
+                //- if (query==null)
+                //-     option(value=`${query.studentClass}`)=`${query.studentClass}th`
+                //- else 
+                option(value=undefined) select class
+                option(value="6") 6th
+                option(value="7") 7th
+                option(value="8") 8th
+                option(value="9") 9th
+                option(value="10") 10th
+                option(value="11") +2 First Year
+                option(value="12") +2 Second Year
+        .input-box 
+            select(name="medium") 
+                //- if (query==null)
+                //-     option(value=`${query.medium}`)=query.medium 
+                //- else 
+                option(value=undefined) select medium
+                option(value="english") English
+                option(value="odia") Odia
+        button.btn(type="submit") search 
+    .receipt-history 
+        table 
+            tr  
+                th Sl.No
+                th Student Name
+                th Class
+                th Medium
+                th Section
+                th Contact
+                //- th Last month
+
+            each student,index in newstudent
+                tr 
+                    td=`${index + 1}`
+                    td=student.name
+                    td=student.studentClass
+                    td=student.medium
+                    if(student.sec)
+                        td=student.sec
+                    else 
+                        td undefined
+                    td=student.phone
+                    //- if(student.monthNo)
+                    //-     td=student.monthNo
+                    //- else 
+                    //-     td new
+    //- p.para=newstudent[0].student
+    //- p.para=newstudent[0].stupay

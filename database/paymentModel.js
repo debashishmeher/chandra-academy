@@ -24,12 +24,52 @@ const paymentSchema=new mongoose.Schema({
         type:Date,
         default:Date.now()
     },
+    monthNo:{
+        type:Number,  
+    },
     bookNo:{
         type:Number
-    }
+    },
+    
+    registrationFees:{
+        type:Number,
+        default:0
+    },
+   lodgingFees:{
+    type:Number,
+    default:0
+    },
+   foodingFees:{
+    type:Number,
+    default:0
+},
+   transportationFees:{
+    type:Number,
+    default:0
+},
+   tuitionFees:{
+    type:Number,
+    default:0
+},
+   monthlyDiscount:{
+    type:Number,
+    default:0
+},
+   otherDiscount:{
+    type:Number,
+    default:0
+}
+},{
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  })
+
+  paymentSchema.pre(/^find/, function (next) {
+    this.populate({
+      path: "studentId",
+    });
+    next();
 })
-
-
 
 const Payment=mongoose.model("Payment",paymentSchema);
 module.exports=Payment;

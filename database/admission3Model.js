@@ -35,7 +35,7 @@ const admissionSchema = new mongoose.Schema(
     transport: {
       type: String,
       required: [true, "phone no must be required"],
-      enum: ["coaching", "school", "both"],
+      enum: ["coaching", "school", "both","none"],
     },
     stay: {
       type: String,

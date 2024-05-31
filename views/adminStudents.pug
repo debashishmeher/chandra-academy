@@ -5,7 +5,10 @@ block adminContent
         form.align-center(action="/admin/students", method="get") 
             .input-box 
                 select(name="studentClass") 
-                    option(value="") select class
+                    if (query==null)
+                        option(value=`${query.studentClass}`)=`${query.studentClass}th`
+                    else 
+                        option(value=undefined) select class
                     option(value="6") 6th
                     option(value="7") 7th
                     option(value="8") 8th
@@ -15,7 +18,10 @@ block adminContent
                     option(value="12") +2 Second Year
             .input-box 
                 select(name="medium") 
-                    option(value="") Medium
+                    if (query==null)
+                        option(value=`${query.medium}`)=query.medium 
+                    else 
+                        option(value=undefined) select medium
                     option(value="english") English
                     option(value="odia") Odia
             button.btn(type="submit") search

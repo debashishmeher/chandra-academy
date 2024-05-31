@@ -6,7 +6,8 @@ const Payment = require("../database/paymentModel");
 exports.getStudentDate=catchAsync(async(req,res,next)=>{
     const studentId=req.params.studentId;
     console.log(studentId);
-    const student=await Student.findById(studentId)
+    const student=await Student.findById(studentId).populate("admission")
+    console.log(student);
     res.status(200).render("studentpage",{student})
 })
 

@@ -18,7 +18,9 @@ import {
   admission5,
   admission5update,
   createStudent,
-  createPayment
+  updateStudent,
+  createPayment,
+  deleteAdmission
 } from "./login";
 
 import FormData from 'form-data'
@@ -41,6 +43,8 @@ const admission4updateBtn = document.getElementById("admission4update");
 const admission5Btn = document.getElementById("admission5");
 const admission5updateBtn = document.getElementById("admission5update");
 const createStudentBtn = document.getElementById("createStudent");
+const updateStudentBtn = document.getElementById("updateStudent");
+const deleteAdmissionBtn = document.getElementsByClassName("deleteAdmission");
 const createPaymentBtn = document.getElementById("receipt-action");
 
 if (loginbtn) {
@@ -421,4 +425,30 @@ if(createPaymentBtn){
    
     createPayment(discount,receptAmount);
   });
+}
+
+if(updateStudentBtn){
+  updateStudentBtn.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const sec=document.getElementById("studentSection").value
+    const doa=document.getElementById("studentDoa").value
+    const rollno=document.getElementById("studentRollno").value
+    const data={sec,doa,rollno}
+   console.log(data);
+   updateStudent(data);
+  });
+}
+
+
+if(deleteAdmissionBtn){
+  console.log(deleteAdmissionBtn);
+  for (let index = 0; index < deleteAdmissionBtn.length; index++) {
+    deleteAdmissionBtn[index].addEventListener("click", (e) => {
+        e.preventDefault();
+        const id=deleteAdmissionBtn[index].dataset.id
+        console.log(id);
+  deleteAdmission(id);
+  })
+    
+  };
 }

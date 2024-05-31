@@ -24,10 +24,20 @@ exports.createAdmission = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdmission = catchAsync(async (req, res, next) => {
-  const admission = await Admission.find({ status: "complete" });
-
+  const admission = await Admission.find();
+  log(admission)
   res.status(200).render("adminAdmission", admission);
 });
+exports.editDate=catchAsync(async(req,res,next)=>{
+  const studentId=req.params.studentId;
+  await Student.findByIdAndUpdate(studentId,req.body)
+
+  
+  res.status(200).json({
+    status:"success",
+    message:`update`
+  })
+})
 
 exports.getOneAdmission = catchAsync(async (req, res, next) => {
   const admissionNo = req.params.admissionId;
@@ -38,10 +48,12 @@ exports.getOneAdmission = catchAsync(async (req, res, next) => {
 
 exports.deleteAdmission = catchAsync(async (req, res, next) => {
   const admissionNo = req.params.admissionId;
-  const admission = await Admission.findOneAndDelete({ admissionNo });
+  console.log(admissionNo);
+  const admission = await Admission.findByIdAndDelete(admissionNo);
 
   res.status(200).json({
     status: "success",
+    message:"admission delete",
     admission,
   });
 });
@@ -246,10 +258,10 @@ exports.createStudent = catchAsync(async (req, res, next) => {
   const admission = await Admission1.findOne({ admission: admissionId });
   const admission2 = await Admission4.findOne({ admission: admissionId });
   // req.body.name=admission.admission1[0].name
-  console.log(admission);
+
   const fullYear = new Date().getFullYear();
   const lastTwoDigits = fullYear.toString().substring(2);
-  const rollClass=admission.studentclass.toString();
+  let rollClass=admission.studentclass.toString();
   const ca="CA"
   const medium=admission.medium.toString().charAt(0).toUpperCase()
   let serialno=await Student.find({
@@ -257,11 +269,17 @@ exports.createStudent = catchAsync(async (req, res, next) => {
     medium:admission.medium
   })
   serialno=serialno.length*1 + 1;
-  serialno=serialno.toString()
+  let serial=serialno.toString()
+  if(serial.length < 2){
+    serial=`0${serial}`
+  }
+  if(rollClass.length < 2){
+    rollClass=`0${rollClass}`
+  }
 
 
 
-  req.body.rollno=lastTwoDigits + rollClass + ca + medium + serialno
+  req.body.rollno=lastTwoDigits + rollClass + ca + medium + serial
   req.body.name = admission.name;
   req.body.phone = admission.phone;
   req.body.studentClass = admission.studentclass;
@@ -269,12 +287,12 @@ exports.createStudent = catchAsync(async (req, res, next) => {
   req.body.gender = admission.gender;
   req.body.photo = admission2.studentPhoto;
   req.body.admission = admissionId;
-
-  const student = await Student.create(req.body);
+  console.log(req.body.photo);
   const mainAdmission = await Admission.findById(req.body.admission);
-
   mainAdmission.status = "student";
   mainAdmission.save();
+  const student = await Student.create(req.body);
+  console.log(student);
 
   res.status(201).json({ status: "success", student });
 });
